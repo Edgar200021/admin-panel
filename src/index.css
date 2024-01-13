@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/fonts/IBMPlexSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/fonts/IBMPlexSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('./assets/fonts/IBMPlexSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    @apply font-normal bg-primary text-white;
+  }
+
+  img {
+    @apply max-w-full w-full;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-[1920px] px-[25px] mx-auto tablet:px-[40px] md-phone:px-3;
+  }
+}
+
+.recharts-brush text {
+  fill: white;
+}
+
+.recharts-brush {
+  border: none;
+}
+
+.recharts-brush-slide {
+  fill: #1c64f2;
+  opacity: 0.6;
+}
+
+.recharts-brush-traveller rect {
+  stroke: #1c64f2;
+  fill: #1c64f2;
+  opacity: 1;
+}
+
+.recharts-brush-traveller line {
+  display: none;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #1c64f2;
+}
+*::-webkit-scrollbar-track {
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: red;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #1c64f2;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
