@@ -36,7 +36,7 @@ const Statistics = ({ className, closeModal, user }: Props) => {
     <div
       ref={ref as MutableRefObject<HTMLDivElement>}
       className={cn(
-        'py-14 pl-5 pr-10 max-w-[470px] overflow-y-auto h-full w-full bg-secondary',
+        'py-14 pl-5 pr-10 mini-tablet:px-3 max-w-[470px] overflow-y-auto h-full w-full bg-secondary',
         className
       )}
     >

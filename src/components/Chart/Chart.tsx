@@ -70,7 +70,11 @@ export function Chart<K extends object, T extends Array<K>>({
             orientation="right"
             tickMargin={14}
             width={60}
-            tick={{ fill: '#616D8D', fontSize: 14, fontWeight: 500 }}
+            tick={{
+              fill: '#616D8D',
+              fontSize: 14,
+              fontWeight: 500,
+            }}
             axisLine={false}
             tickLine={false}
             dataKey={YAxisKey}
@@ -86,8 +90,7 @@ export function Chart<K extends object, T extends Array<K>>({
             strokeWidth={2}
             stroke="#1C64F2"
             fill="url(#chartsGradient)"
-            name="Extra sales"
-            unit={'$'}
+            name="Amount"
           />
 
           <Brush
