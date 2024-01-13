@@ -27,7 +27,7 @@ export const UserTable = ({ className }: Props) => {
   const { queryParams: orderBy, setQueryParams } = useQueryParams('orderBy')
   const { queryParams: search } = useQueryParams('search')
 
-  const { data, isFetching, isError } = useGetUsersQuery(
+  const { data, isFetching, isError, isLoading } = useGetUsersQuery(
     {
       page: Number(page) || 1,
       ...(!!orderBy.trim() && {
@@ -38,6 +38,7 @@ export const UserTable = ({ className }: Props) => {
     { pollingInterval: 1000 * 60 }
   )
 
+  if (isLoading) return <Spinner />
   if (isError) return <DisplayErrorMessage />
   if (!data?.data.length)
     return (
