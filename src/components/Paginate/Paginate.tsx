@@ -30,9 +30,9 @@ export const Paginate = memo(({ className, ...otherProps }: Props) => {
       pageClassName="w-10 h-10 flex items-center justify-center"
       breakClassName="w-10 h-10 flex items-center justify-center"
       activeClassName="bg-[#1C64F2] rounded-[8px]"
-      forcePage={+page - 1}
+      initialPage={Number(page)}
       previousLinkClassName={cn({
-        hidden: +page === 1,
+        hidden: Number(page) === 0 || Number(page) === 1,
       })}
       nextLinkClassName={cn({
         hidden: otherProps.pageCount === +page,
