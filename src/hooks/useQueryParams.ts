@@ -16,7 +16,7 @@ export const useQueryParams = (defaultKey: string) => {
   const value = searchParams.get(defaultKey)
 
   return {
-    queryParams: value === null ? '' : isNaN(parseInt(value)) ? value : Number(value),
+    queryParams: value === null ? '' : value,
     setQueryParams,
     deleteQueryParams,
   }
