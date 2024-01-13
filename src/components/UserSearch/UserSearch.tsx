@@ -6,7 +6,6 @@ import search from '../../assets/icons/search.svg'
 import { useEffect, useState } from 'react'
 import { useDebounce } from '../../hooks/useDebounce'
 import { useQueryParams } from '../../hooks/useQueryParams'
-import { useSearchParams } from 'react-router-dom'
 
 interface Props {
   className?: string
