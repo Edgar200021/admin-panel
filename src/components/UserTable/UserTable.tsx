@@ -137,7 +137,6 @@ export const UserTable = ({ className }: Props) => {
                     className="justify-end"
                     name="statistics"
                     renderContent={(closeModal, isOpened) => {
-                      console.log(isOpened)
                       return (
                         <Suspense fallback={<Spinner />}>
                           <LazyStatistics

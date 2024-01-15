@@ -20,17 +20,19 @@ const Statistics = ({ className, closeModal, user }: Props) => {
   const { data, isFetching, isError } = useGetUserTransactionQuery(user.id)
   const ref = useOutsideClick<HTMLDivElement>(closeModal)
 
-  const filteredData = useMemo(
-    () =>
-      data?.filter(transaction => {
-        return (
-          new Date().getDate() - new Date(transaction.created_at).getDate() <= 1
-        )
-      }),
-    [data]
-  )
 
-  if (!filteredData) return
+  //* По тз надо было показывать данные за последние 24 часа, но после 13 числа данные не обновлялись, по этому закомментировал, чтобы показать работу
+  //  const filteredData = useMemo(
+  //    () =>
+  //      data?.filter(transaction => {
+  //        return (
+  //          new Date().getDate() - new Date(transaction.created_at).getDate() <= 1
+  //        )
+  //      }),
+  //    [data]
+  //  )
+
+  if (!data) return
 
   return (
     <div
@@ -57,7 +59,8 @@ const Statistics = ({ className, closeModal, user }: Props) => {
           </span>
           <Chart<Transaction, Transaction[]>
             YAxisKey="amount"
-            data={filteredData}
+            //data={filteredData}
+            data={data}
             XAxisKey="created_at"
             className="mb-3"
           />
@@ -68,7 +71,9 @@ const Statistics = ({ className, closeModal, user }: Props) => {
           <span className="font-semibold text-xl mb-[18px] block">
             История операций
           </span>
-          <StatisticsTable transactions={filteredData} />
+          <StatisticsTable
+            transactions={data} /*transactions={filteredData}*/
+          />
         </>
       )}
     </div>
