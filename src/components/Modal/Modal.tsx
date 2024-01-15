@@ -69,11 +69,13 @@ const Content = ({
       mountedTimerId = setTimeout(() => {
         setState(prev => ({ ...prev, isMounted: false }))
       }, delay)
+      document.style.overflow = "auto"
     } else {
       setState(prev => ({ ...prev, isMounted: true }))
       openedTimerId = setTimeout(() => {
         setState(prev => ({ ...prev, isOpened: true }))
       }, delay)
+      document.style.overflow = "hidden"
     }
 
     return () => {
