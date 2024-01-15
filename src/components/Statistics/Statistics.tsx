@@ -1,4 +1,4 @@
-import { MutableRefObject, useMemo } from 'react'
+import { MutableRefObject } from 'react'
 import { useOutsideClick } from '../../hooks/useOutsideClick'
 import { cn } from '../../utils/cn'
 import { Button } from '../ui/Button'
@@ -19,7 +19,6 @@ interface Props {
 const Statistics = ({ className, closeModal, user }: Props) => {
   const { data, isFetching, isError } = useGetUserTransactionQuery(user.id)
   const ref = useOutsideClick<HTMLDivElement>(closeModal)
-
 
   //* По тз надо было показывать данные за последние 24 часа, но после 13 числа данные не обновлялись, по этому закомментировал, чтобы показать работу
   //  const filteredData = useMemo(
